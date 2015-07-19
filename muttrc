@@ -1,0 +1,61 @@
+set help = no
+set sort = threads
+set sort_aux = last-date-received
+folder-hook . set sort=threads
+folder-hook spam set sort=subject
+set move = no
+set postpone = yes
+set copy = yes
+set record = ~/Mail/INBOX.Sent
+set locale = en_GB.UTF-8
+
+# IMAP: offlineimap
+set folder = "~/Mail"
+source ~/.mutt/mailboxes
+set postponed = "+INBOX.Drafts"
+
+set mbox_type=Maildir
+set spoolfile=+INBOX
+
+set from = iain@soulflyer.co.uk
+set realname = "Iain Wood"
+set use_from = yes
+set smtp_url=smtps://iain+soulflyer.co.uk@helo.nocdirect.com
+
+set nm_default_uri="notmuch:///Users/iain/Mail"
+
+unset mark_old
+set include = yes
+set attribution="On %d, %n wrote:"
+set forward_format="Fwd: %s"
+set indent_str="> "
+
+set mailcap_path="~/.mailcap"
+macro attach 'V' "<pipe-entry>cat > ~/.mutt/cache/mail.html; open ~/.mutt/cache/mail.html; sleep 5;  rm ~/.mutt/cache/mail.html<enter>"
+macro index \cb |urlview\n 'call urlview to extract URLs out of a message'
+macro index 'a' "<enter-command>set date_format=%Y; save-hook . INBOX.Archives.%d; push <save-message><return>"
+macro index 's' "<enter-command>save-hook . %F; push <save-message><return>"
+
+set sidebar_width   = 30
+set sidebar_visible = yes
+
+# mailboxes =INBOX
+# mailboxes =sent-mail
+
+source ~/.mutt/mutt-colours
+
+folder-hook . 'macro pager d "<exit><delete-message>" "Delete the message"'
+
+macro index ,@) "<enter-command> set sidebar_visible=no; macro index ~ ,@( 'Toggle sidebar'<Enter>"
+macro index ,@( "<enter-command> set sidebar_visible=yes; macro index ~ ,@) 'Toggle sidebar'<Enter>"
+macro index ~ ,@( 'Toggle sidebar'      # toggle the sidebar))")"
+
+virtual-mailboxes \
+        "INBOX"     "notmuch://?query=tag:INBOX and NOT tag:archive"\
+        "Unread"    "notmuch://?query=tag:unread"\
+        "Starred"   "notmuch://?query=tag:*"\
+        "Sent"      "notmuch://?query=tag:sent"
+bind index <left> sidebar-prev
+bind index <right> sidebar-next
+bind index <return> sidebar-open
+bind index <Esc>S sidebar-toggle
