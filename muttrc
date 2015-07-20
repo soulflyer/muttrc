@@ -1,3 +1,4 @@
+# source "gpg2 -dq $HOME/.mutt/stuff.gpg |"
 set help = no
 set sort = threads
 set sort_aux = last-date-received
@@ -8,41 +9,35 @@ set postpone = yes
 set copy = yes
 set record = ~/Mail/INBOX.Sent
 set locale = en_GB.UTF-8
-
+source ~/.mutt/mutt-colours
 # IMAP: offlineimap
 set folder = "~/Mail"
 source ~/.mutt/mailboxes
 set postponed = "+INBOX.Drafts"
-
 set mbox_type=Maildir
 set spoolfile=+INBOX
-
 set from = iain@soulflyer.co.uk
 set realname = "Iain Wood"
 set use_from = yes
 set smtp_url=smtps://iain+soulflyer.co.uk@helo.nocdirect.com
-
-set nm_default_uri="notmuch:///Users/iain/Mail"
-
+set smtp_pass = `/usr/bin/security find-generic-password -l IMAP:iain+soulflyer.co.uk@helo.nocdirect.com -w`
+# set smtp_pass=$my_password
 unset mark_old
+unset confirmappend
 set include = yes
 set attribution="On %d, %n wrote:"
 set forward_format="Fwd: %s"
 set indent_str="> "
-
+set query_command="lbdbq '%s'"
+set nm_default_uri="notmuch:///Users/iain/Mail"
 set mailcap_path="~/.mailcap"
 macro attach 'V' "<pipe-entry>cat > ~/.mutt/cache/mail.html; open ~/.mutt/cache/mail.html; sleep 5;  rm ~/.mutt/cache/mail.html<enter>"
 macro index \cb |urlview\n 'call urlview to extract URLs out of a message'
-macro index 'a' "<enter-command>set date_format=%Y; save-hook . INBOX.Archives.%d; push <save-message><return>"
+macro index 'a' "<enter-command>set date_format=%Y; save-hook . =INBOX.Archives.%d; push <save-message><return>"
 macro index 's' "<enter-command>save-hook . %F; push <save-message><return>"
 
 set sidebar_width   = 30
-set sidebar_visible = yes
-
-# mailboxes =INBOX
-# mailboxes =sent-mail
-
-source ~/.mutt/mutt-colours
+set sidebar_visible = no
 
 folder-hook . 'macro pager d "<exit><delete-message>" "Delete the message"'
 

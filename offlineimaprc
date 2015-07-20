@@ -1,0 +1,29 @@
+# Sample minimal config file.  Copy this to ~/.offlineimaprc and edit to
+# get started fast.
+
+[general]
+accounts = iain@soulflyer.co.uk
+pythonfile=~/.mutt/offlineimap.py
+
+[Account iain@soulflyer.co.uk]
+localrepository = Local
+remoterepository = Remote
+
+[Repository Local]
+type = Maildir
+localfolders = ~/Mail
+
+[Repository Remote]
+type = IMAP
+remotehost = helo.nocdirect.com
+remoteuser = iain@soulflyer.co.uk
+ssl = yes
+sslcacertfile = /opt/local/etc/openssl/cert.pem
+remotepasseval = get_keychain_pass(label="IMAP:iain+soulflyer.co.uk@helo.nocdirect.com")
+[mbnames]
+enabled = yes
+filename = ~/.mutt/mailboxes
+header = "mailboxes "
+peritem = "+%(foldername)s"
+sep = " "
+footer = "\n"
