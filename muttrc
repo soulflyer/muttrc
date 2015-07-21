@@ -1,5 +1,6 @@
 # source "gpg2 -dq $HOME/.mutt/stuff.gpg |"
-set help = no
+source "$HOME/.mutt/aliases"
+set help = yes
 set sort = threads
 set sort_aux = last-date-received
 folder-hook . set sort=threads
@@ -34,7 +35,8 @@ set mailcap_path="~/.mailcap"
 macro attach 'V' "<pipe-entry>cat > ~/.mutt/cache/mail.html; open ~/.mutt/cache/mail.html; sleep 5;  rm ~/.mutt/cache/mail.html<enter>"
 macro index \cb |urlview\n 'call urlview to extract URLs out of a message'
 macro index 'a' "<enter-command>set date_format=%Y; save-hook . =INBOX.Archives.%d; push <save-message><return>"
-macro index 's' "<enter-command>save-hook . %F; push <save-message><return>"
+macro index 's' "<enter-command>save-hook . =INBOX.%v; push <save-message><return>"
+macro index 'j' "<enter-command>save-hook . =INBOX.spam; push <save-message><return>"
 
 set sidebar_width   = 30
 set sidebar_visible = no
