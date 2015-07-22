@@ -1,5 +1,6 @@
 # source "gpg2 -dq $HOME/.mutt/stuff.gpg |"
 source "$HOME/.mutt/aliases"
+set wait_key = no
 set help = yes
 set sort = threads
 set sort_aux = last-date-received
@@ -33,10 +34,13 @@ set query_command="lbdbq '%s'"
 set nm_default_uri="notmuch:///Users/iain/Mail"
 set mailcap_path="~/.mailcap"
 macro attach 'V' "<pipe-entry>cat > ~/.mutt/cache/mail.html; open ~/.mutt/cache/mail.html; sleep 5;  rm ~/.mutt/cache/mail.html<enter>"
-macro index \cb |urlview\n 'call urlview to extract URLs out of a message'
-macro index 'a' "<enter-command>set date_format=%Y; save-hook . =INBOX.Archives.%d; push <save-message><return>"
-macro index 's' "<enter-command>save-hook . =INBOX.%v; push <save-message><return>"
-macro index 'j' "<enter-command>save-hook . =INBOX.spam; push <save-message><return>"
+macro index,pager 'l' <pipe-message>urlview\n 'call urlview to extract URLs out of a message'
+macro index 'a' "<enter-command>unset resolve<enter><clear-flag>N<enter-command> set resolve; set date_format=%Y; save-hook . =INBOX.Archives.%d; push <tag-prefix><save-message><return>"
+macro index 's' "<enter-command>save-hook . =INBOX.%v; push <tag-prefix><save-message><return>"
+macro index 'S' "<enter-command>save-hook . =INBOX.%F; push <tag-prefix><save-message><return>"
+# macro index \cS "<enter-command>save-hook . =INBOX.%n; push <tag-prefix><save-message><return>"
+macro index \cs "<enter-command>save-hook . =INBOX.%u; push <tag-prefix><save-message><return>"
+macro index 'j' "<enter-command>unset resolve<enter><clear-flag>N<enter-command> set resolve; save-hook . =INBOX.spam; push <tag-prefix><save-message><return>"
 
 set sidebar_width   = 30
 set sidebar_visible = no
@@ -46,12 +50,12 @@ folder-hook . 'macro pager d "<exit><delete-message>" "Delete the message"'
 macro index ,@) "<enter-command> set sidebar_visible=no; macro index ~ ,@( 'Toggle sidebar'<Enter>"
 macro index ,@( "<enter-command> set sidebar_visible=yes; macro index ~ ,@) 'Toggle sidebar'<Enter>"
 macro index ~ ,@( 'Toggle sidebar'      # toggle the sidebar))")"
-
-virtual-mailboxes \
-        "INBOX"     "notmuch://?query=tag:INBOX and NOT tag:archive"\
-        "Unread"    "notmuch://?query=tag:unread"\
-        "Starred"   "notmuch://?query=tag:*"\
-        "Sent"      "notmuch://?query=tag:sent"
+source "~/.mutt/virtualmailboxes"
+# virtual-mailboxes \
+#         "INBOX"     "notmuch://?query=tag:INBOX and NOT tag:archive"\
+#         "Unread"    "notmuch://?query=tag:unread"\
+#         "Starred"   "notmuch://?query=tag:*"\
+#         "Sent"      "notmuch://?query=tag:sent"
 bind index <left> sidebar-prev
 bind index <right> sidebar-next
 bind index <return> sidebar-open

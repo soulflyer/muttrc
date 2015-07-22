@@ -1,6 +1,3 @@
-# Sample minimal config file.  Copy this to ~/.offlineimaprc and edit to
-# get started fast.
-
 [general]
 accounts = iain@soulflyer.co.uk
 pythonfile=~/.mutt/offlineimap.py
@@ -8,6 +5,7 @@ pythonfile=~/.mutt/offlineimap.py
 [Account iain@soulflyer.co.uk]
 localrepository = Local
 remoterepository = Remote
+postsynchook = notmuch new
 
 [Repository Local]
 type = Maildir

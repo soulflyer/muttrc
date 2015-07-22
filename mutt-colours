@@ -10,7 +10,7 @@ color tilde     blue black
 color tree      green black
 
 # color index     red black ~D
-color index     magenta black ~T
+color index     cyan black ~T
 color index     green black ~tiain@soulflyer.co.uk
 color index     yellow black ~tpublic@soulflyer.co.uk
 color index     blue black ~tiain@soulflyer.com
