@@ -8,7 +8,7 @@ def get_keychain_pass(label=None):
         'keychain': '/Users/iain/Library/Keychains/login.keychain',
     }
     command = "sudo -u iain %(security)s -v %(command)s -g -l %(label)s %(keychain)s" % params
-    print "hello from python"
+    print "hello from offlineimap.py"
     output = subprocess.check_output(command, shell=True, stderr=subprocess.STDOUT)
     outtext = [l for l in output.splitlines()
                if l.startswith('password: ')][0]

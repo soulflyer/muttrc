@@ -13,10 +13,10 @@
 	<key>RunAtLoad</key>
 	<true/>
 	<key>StandardErrorPath</key>
-	<string>/tmp/offlineimap.out</string>
+	<string>/tmp/offlineimap.log</string>
 	<key>StandardOutPath</key>
-	<string>/tmp/offlineimap.out</string>
+	<string>/tmp/offlineimap.log</string>
 	<key>StartInterval</key>
-	<integer>900</integer>
+	<integer>300</integer>
 </dict>
 </plist>
