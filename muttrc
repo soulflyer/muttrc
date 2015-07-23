@@ -27,6 +27,8 @@ set smtp_pass = `/usr/bin/security find-generic-password -l IMAP:iain+soulflyer.
 unset mark_old
 unset confirmappend
 set include = yes
+# set index_format = "%4C %Z %(%b %d %H:%M) %-20.20L (%4c) %s"
+set index_format = "%4C %Z %(%b %d %H:%M) %-24.24L %s"
 set attribution="On %d, %n wrote:"
 set forward_format="Fwd: %s"
 set indent_str="> "
@@ -51,12 +53,7 @@ macro index ,@) "<enter-command> set sidebar_visible=no; macro index ~ ,@( 'Togg
 macro index ,@( "<enter-command> set sidebar_visible=yes; macro index ~ ,@) 'Toggle sidebar'<Enter>"
 macro index ~ ,@( 'Toggle sidebar'      # toggle the sidebar))")"
 source "~/.mutt/virtualmailboxes"
-# virtual-mailboxes \
-#         "INBOX"     "notmuch://?query=tag:INBOX and NOT tag:archive"\
-#         "Unread"    "notmuch://?query=tag:unread"\
-#         "Starred"   "notmuch://?query=tag:*"\
-#         "Sent"      "notmuch://?query=tag:sent"
 bind index <left> sidebar-prev
 bind index <right> sidebar-next
 bind index <return> sidebar-open
-bind index <Esc>S sidebar-toggle
+bind index <Esc>` sidebar-toggle

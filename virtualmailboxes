@@ -2,4 +2,5 @@ virtual-mailboxes \
         "INBOX"  "notmuch://query=tag:INBOX and NOT tag:archive"\
         "Unread"    "notmuch://?query=tag:unread"\
         "Starred"   "notmuch://?query=tag:*"\
-        "Sent"      "notmuch://?query=tag:sent"
+        "Sent"      "notmuch://?query=tag:sent"\
+        "Quentin"   "notmuch://?query=to:(Quentin Dewhurst) or from:(Quentin Dewhurst)\
