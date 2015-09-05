@@ -1,6 +1,16 @@
 virtual-mailboxes \
-        "INBOX"  "notmuch://query=tag:INBOX and NOT tag:archive"\
-        "Unread"    "notmuch://?query=tag:unread"\
-        "Starred"   "notmuch://?query=tag:*"\
-        "Sent"      "notmuch://?query=tag:sent"\
-        "Quentin"   "notmuch://?query=to:(Quentin Dewhurst) or from:(Quentin Dewhurst)\
+"Hue"     "notmuch://?query=to:(Hue Nguyen) or from:(Hue Nguyen)" \
+"Quentin" "notmuch://?query=to:(Quentin Dewhurst) or from:(Quentin Dewhurst)" \
+"facebook" "notmuch://?query=from:(Facebook)" \
+"overtone" "notmuch://?query=to:(Overtone)" \
+"overtone-new" "notmuch://?query=to:(Overtone) and not folder:INBOX.Overtone" \
+"emacs-live" "notmuch://?query=to:emacs-live" \
+"emacs-live-new" "notmuch://?query=to:(emacs-live) and not folder:INBOX.emacs-live" \
+"google+" "notmuch://?query=from:plus.google.com" \
+"google+-new" "notmuch://?query=to:plus.google.com and not folder:INBOX.Google+" \
+"rainbow" "notmuch://?query=from:divevietnam.com or from:jezlifetour or to:jezlifetour" \
+"yucks" "notmuch://?query=to:yucks or from:yucks" \
+"hsbc" "notmuch://?query=from:hsbc" \
+"apress" "notmuch://?query=from:apress" \
+"github" "notmuch://?query=from:github" \
+"printer" "notmuch://?query=from:inatnhatrang or to:inatnhatrang"

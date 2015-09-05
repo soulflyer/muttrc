@@ -17,6 +17,12 @@ color index     blue black ~tiain@soulflyer.com
 color index     brightred black ~tphotos@soulflyer
 color index     magenta black ~tteacher@soulflyer
 
+color index     green black ~fiain@soulflyer.co.uk
+color index     yellow black ~fpublic@soulflyer.co.uk
+color index     blue black ~fiain@soulflyer.com
+color index     brightred black ~fphotos@soulflyer
+color index     magenta black ~fteacher@soulflyer
+
 color header   brightgreen black ^From:
 #color header   brightcyan black ^To:
 #color header   brightcyan black ^Reply-To:

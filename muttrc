@@ -1,5 +1,6 @@
 # source "gpg2 -dq $HOME/.mutt/stuff.gpg |"
 source "$HOME/.mutt/aliases"
+source "$HOME/.mutt/lists"
 set wait_key = no
 set help = yes
 set sort = threads
@@ -21,6 +22,8 @@ set spoolfile=+INBOX
 set from = iain@soulflyer.co.uk
 set realname = "Iain Wood"
 set use_from = yes
+set reverse_name
+alternates "public@soulflyer.co.uk|iain@soulflyer.com|photos@soulflyer.co.uk|teacher@soulflyer.co.uk"
 set smtp_url=smtps://iain+soulflyer.co.uk@helo.nocdirect.com
 set smtp_pass = `/usr/bin/security find-generic-password -l IMAP:iain+soulflyer.co.uk@helo.nocdirect.com -w`
 # set smtp_pass=$my_password
@@ -35,11 +38,14 @@ set indent_str="> "
 set query_command="lbdbq '%s'"
 set nm_default_uri="notmuch:///Users/iain/Mail"
 set mailcap_path="~/.mailcap"
+
+lists overtone
+
 macro attach 'V' "<pipe-entry>cat > ~/.mutt/cache/mail.html; open ~/.mutt/cache/mail.html; sleep 5;  rm ~/.mutt/cache/mail.html<enter>"
 macro index,pager 'l' <pipe-message>urlview\n 'call urlview to extract URLs out of a message'
 macro index 'a' "<enter-command>unset resolve<enter><clear-flag>N<enter-command> set resolve; set date_format=%Y; save-hook . =INBOX.Archives.%d; push <tag-prefix><save-message><return>"
 macro index 's' "<enter-command>save-hook . =INBOX.%v; push <tag-prefix><save-message><return>"
-macro index 'S' "<enter-command>save-hook . =INBOX.%F; push <tag-prefix><save-message><return>"
+macro index 'S' "<enter-command>save-hook . =INBOX.%L; push <tag-prefix><save-message><return>"
 # macro index \cS "<enter-command>save-hook . =INBOX.%n; push <tag-prefix><save-message><return>"
 macro index \cs "<enter-command>save-hook . =INBOX.%u; push <tag-prefix><save-message><return>"
 macro index 'j' "<enter-command>unset resolve<enter><clear-flag>N<enter-command> set resolve; save-hook . =INBOX.spam; push <tag-prefix><save-message><return>"
@@ -52,8 +58,11 @@ folder-hook . 'macro pager d "<exit><delete-message>" "Delete the message"'
 macro index ,@) "<enter-command> set sidebar_visible=no; macro index ~ ,@( 'Toggle sidebar'<Enter>"
 macro index ,@( "<enter-command> set sidebar_visible=yes; macro index ~ ,@) 'Toggle sidebar'<Enter>"
 macro index ~ ,@( 'Toggle sidebar'      # toggle the sidebar))")"
-source "~/.mutt/virtualmailboxes"
+source ~/.mutt/virtualmailboxes
+#virtual-mailboxes \
+#"Quentin" "notmuch://?query=to:(Quentin Dewhurst) or from:(Quentin Dewhurst)"
 bind index <left> sidebar-prev
 bind index <right> sidebar-next
 bind index <return> sidebar-open
 bind index <Esc>` sidebar-toggle
+bind index L limit
