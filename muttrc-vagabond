@@ -41,7 +41,7 @@ set mailcap_path="~/.mailcap"
 
 lists overtone
 
-macro attach 'V' "<pipe-entry>cat > ~/.mutt/cache/mail.html; open ~/.mutt/cache/mail.html; sleep 5;  rm ~/.mutt/cache/mail.html<enter>"
+macro attach 'V' "<pipe-entry>cat > ~/.mutt/cache/mail.html; xdg-open ~/.mutt/cache/mail.html; sleep 5;  rm ~/.mutt/cache/mail.html<enter>"
 macro index,pager 'l' <pipe-message>urlview\n 'call urlview to extract URLs out of a message'
 macro index 'a' "<enter-command>unset resolve<enter><clear-flag>N<enter-command> set resolve; set date_format=%Y; save-hook . =INBOX.Archives.%d; push <tag-prefix><save-message><return>"
 macro index 's' "<enter-command>save-hook . =INBOX.%v; push <tag-prefix><save-message><return>"

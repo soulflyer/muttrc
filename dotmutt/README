@@ -1,0 +1,4 @@
+This directory contains links to the various files mutt uses.
+Some of them need to be different for different systems, so
+copy this directory and change the links to any files that
+need editing for that particular system. Then link from ~/.mutt
