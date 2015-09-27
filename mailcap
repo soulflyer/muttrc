@@ -1,12 +1,6 @@
-text/html; open %s &sleep 10
+text/html; firefox %s
 # text/html; lynx -dump -force_html  %s;  needsterminal; copiousoutput
-application/pdf; open %s & sleep 5
-image/*; open %s & sleep 5
-application/*; open %s & sleep 5
-# image/jpeg; open %s & sleep 5
-# image/gif; open %s & sleep 5
-# image/GIF; open %s & sleep 5
-# image/JPG; open %s & sleep 5
-# image/jpg; open %s & sleep 5
-# image/png; open %s & sleep 5
+application/pdf; xdg-open %s & sleep 5
+image/*; eog %s
+application/*; xdg-open %s & sleep 5
 application/msword; antiword %s ; copiousoutput

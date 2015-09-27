@@ -5,7 +5,7 @@ accounts = iain@soulflyer.co.uk
 localrepository = Local
 remoterepository = Remote
 presynchook = date >/tmp/offlineimap.log
-postsynchook = /usr/local/bin/notmuch new >& /tmp/offlineimap.log
+postsynchook = /usr/bin/notmuch new > /tmp/offlineimap.log
 
 [Repository Local]
 type = Maildir

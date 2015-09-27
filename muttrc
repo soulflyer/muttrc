@@ -50,13 +50,13 @@ macro index 'S' "<enter-command>save-hook . =INBOX.%L; push <tag-prefix><save-me
 macro index \cs "<enter-command>save-hook . =INBOX.%u; push <tag-prefix><save-message><return>"
 macro index 'j' "<enter-command>unset resolve<enter><clear-flag>N<enter-command> set resolve; save-hook . =INBOX.spam; push <tag-prefix><save-message><return>"
 
-#set sidebar_width   = 30
-#set sidebar_visible = no
+set sidebar_width   = 30
+set sidebar_visible = no
 folder-hook . 'macro pager d "<exit><delete-message>" "Delete the message"'
 
-#macro index ,@) "<enter-command> set sidebar_visible=no; macro index ~ ,@( 'Toggle sidebar'<Enter>"
-#macro index ,@( "<enter-command> set sidebar_visible=yes; macro index ~ ,@) 'Toggle sidebar'<Enter>"
-#macro index ~ ,@( 'Toggle sidebar'      # toggle the sidebar))")"
+macro index ,@) "<enter-command> set sidebar_visible=no; macro index ~ ,@( 'Toggle sidebar'<Enter>"
+macro index ,@( "<enter-command> set sidebar_visible=yes; macro index ~ ,@) 'Toggle sidebar'<Enter>"
+macro index ~ ,@( 'Toggle sidebar'      # toggle the sidebar))")"
 #source ~/.mutt/virtualmailboxes
 #virtual-mailboxes \
 #"Quentin" "notmuch://?query=to:(Quentin Dewhurst) or from:(Quentin Dewhurst)"
