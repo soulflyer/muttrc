@@ -1,5 +1,6 @@
 [general]
 accounts = iain@soulflyer.co.uk
+maxstncaccounts = 5
 
 [Account iain@soulflyer.co.uk]
 localrepository = Local
@@ -15,9 +16,23 @@ localfolders = ~/Mail
 type = IMAP
 remotehost = helo.nocdirect.com
 remoteuser = iain@soulflyer.co.uk
-ssl = yes
-sslcacertfile = /etc/ssl/certs/nocdirect.pem
 remotepasseval = "D0tL00p3rD0t"
+folderfilter = lambda foldername: foldername not in \
+             ['INBOX.Archives',
+             'INBOX.Archives.2002',
+             'INBOX.Archives.2003',
+             'INBOX.Archives.2004',
+             'INBOX.Archives.2005',
+             'INBOX.Archives.2006',
+             'INBOX.Archives.2007',
+             'INBOX.Archives.2008',
+             'INBOX.Archives.2009',
+             'INBOX.Archives.2010',
+             'INBOX.Archives.2011',
+             'INBOX.Archives.2012',
+             'INBOX.Archives.2013',
+             'INBOX.Archives.2014']
+
 [mbnames]
 enabled = yes
 filename = ~/.mutt/mailboxes
