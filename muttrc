@@ -65,3 +65,5 @@ macro index ~ ,@( 'Toggle sidebar'      # toggle the sidebar))")"
 #bind index <return> sidebar-open
 #bind index <Esc>` sidebar-toggle
 #bind index L limit
+
+bind attach <return> view-mailcap
