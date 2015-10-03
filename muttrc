@@ -45,9 +45,9 @@ macro attach 'V' "<pipe-entry>cat > ~/.mutt/cache/mail.html; open ~/.mutt/cache/
 macro index,pager 'l' <pipe-message>urlview\n 'call urlview to extract URLs out of a message'
 macro index 'a' "<enter-command>unset resolve<enter><clear-flag>N<enter-command> set resolve; set date_format=%Y; save-hook . =INBOX.Archives.%d; push <tag-prefix><save-message><return>"
 macro index 's' "<enter-command>save-hook . =INBOX.%v; push <tag-prefix><save-message><return>"
-macro index 'S' "<enter-command>save-hook . =INBOX.%L; push <tag-prefix><save-message><return>"
-# macro index \cS "<enter-command>save-hook . =INBOX.%n; push <tag-prefix><save-message><return>"
-macro index \cs "<enter-command>save-hook . =INBOX.%u; push <tag-prefix><save-message><return>"
+#macro index 'S' "<enter-command>save-hook . =INBOX.%L; push <tag-prefix><save-message><return>"
+#macro index \CS "<enter-command>save-hook . =INBOX.%n; push <tag-prefix><save-message><return>"
+# macro index \cs "<enter-command>save-hook . =INBOX.%u; push <tag-prefix><save-message><return>"
 macro index 'j' "<enter-command>unset resolve<enter><clear-flag>N<enter-command> set resolve; save-hook . =INBOX.spam; push <tag-prefix><save-message><return>"
 
 set sidebar_width   = 30
@@ -67,3 +67,4 @@ macro index ~ ,@( 'Toggle sidebar'      # toggle the sidebar))")"
 #bind index L limit
 
 bind attach <return> view-mailcap
+macro index S "<enter-command>unset wait_key<enter><shell-escape>mutt-notmuch-py ~/Mail/search<enter><change-folder-readonly>+search<enter>" "search mail (using notmuch)"

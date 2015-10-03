@@ -19,6 +19,22 @@ remoteuser = iain@soulflyer.co.uk
 ssl = yes
 sslcacertfile = /opt/local/etc/openssl/cert.pem
 remotepasseval = get_keychain_pass(label="IMAP:iain+soulflyer.co.uk@helo.nocdirect.com")
+folderfilter = lambda foldername: foldername not in \
+             ['INBOX.Archives',
+             'INBOX.Archives.2002',
+             'INBOX.Archives.2003',
+             'INBOX.Archives.2004',
+             'INBOX.Archives.2005',
+             'INBOX.Archives.2006',
+             'INBOX.Archives.2007',
+             'INBOX.Archives.2008',
+             'INBOX.Archives.2009',
+             'INBOX.Archives.2010',
+             'INBOX.Archives.2011',
+             'INBOX.Archives.2012',
+             'INBOX.Archives.2013',
+             'INBOX.Archives.2014']
+
 [mbnames]
 enabled = yes
 filename = ~/.mutt/mailboxes
