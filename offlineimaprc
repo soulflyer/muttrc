@@ -5,8 +5,8 @@ pythonfile=~/.mutt/offlineimap.py
 [Account iain@soulflyer.co.uk]
 localrepository = Local
 remoterepository = Remote
-presynchook = date >/tmp/offlineimap.log
-postsynchook = /usr/local/bin/notmuch new >& /tmp/offlineimap.log
+presynchook = date >>/tmp/offlineimap.log
+postsynchook = /opt/local/bin/notmuch new 2>&1 >> /tmp/offlineimap.log
 
 [Repository Local]
 type = Maildir
