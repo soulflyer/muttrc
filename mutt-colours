@@ -15,6 +15,7 @@ color index     green black ~tiain@soulflyer.co.uk
 color index     yellow black ~tpublic@soulflyer.co.uk
 color index     brightgreen black ~tiain@soulflyer.com
 color index     brightred black ~tphotos@soulflyer
+color index     brightred black ~tphoto-request@soulflyer
 color index     magenta black ~tteacher@soulflyer
 color index     blue black ~tiain@wiserobot.com
 
@@ -22,6 +23,7 @@ color index     green black ~fiain@soulflyer.co.uk
 color index     yellow black ~fpublic@soulflyer.co.uk
 color index     brightgreen black ~fiain@soulflyer.com
 color index     brightred black ~fphotos@soulflyer
+color index     brightred black ~fphoto-request@soulflyer
 color index     magenta black ~fteacher@soulflyer
 color index     blue black ~fiain@soulflyer.co.uk
 
