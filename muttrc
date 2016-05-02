@@ -31,7 +31,7 @@ unset mark_old
 unset confirmappend
 set include = yes
 # set index_format = "%4C %Z %(%b %d %H:%M) %-20.20L (%4c) %s"
-set index_format = "%4C %Z %(%b %d %H:%M) %-24.24L %s"
+set index_format = "%4C %Z %(%Y %b %d %H:%M) %-24.24L %s"
 set attribution="On %d, %n wrote:"
 set forward_format="Fwd: %s"
 set indent_str="> "
