@@ -4,3 +4,4 @@ application/pdf; open %s & sleep 5
 image/*; open %s & sleep 5
 application/*; open %s & sleep 5
 application/msword; antiword %s ; copiousoutput
+video/*; open %s & sleep 15

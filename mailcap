@@ -4,3 +4,4 @@ application/pdf; xdg-open %s & sleep 5
 image/*; eog %s
 application/*; xdg-open %s & sleep 5
 application/msword; antiword %s ; copiousoutput
+video/mp4; open %s

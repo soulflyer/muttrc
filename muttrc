@@ -68,3 +68,6 @@ macro index ~ ,@( 'Toggle sidebar'      # toggle the sidebar))")"
 
 bind attach <return> view-mailcap
 macro index S "<enter-command>unset wait_key<enter><shell-escape>mutt-notmuch-py ~/Mail/search<enter><change-folder-readonly>+search<enter>" "search mail (using notmuch)"
+alias nham Nham <ntnham.mnbkhe.nt@khanhhoa.edu.vn>
+alias kathryn.wood Kathryn <kathryn.wood@hotmail.co.uk>
+alias nguyenthinhambk Nham nguyen thi <nguyenthinhambk@gmail.com>
